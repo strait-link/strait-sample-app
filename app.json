@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Bridge Sample",
+    "slug": "bridge-sample",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "bridgesample",
+    "splash": { "backgroundColor": "#0c0e12" },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bridge.sample",
+      "associatedDomains": ["applinks:bridge-redirect-engine.onrender.com"]
+    },
+    "android": {
+      "package": "com.bridge.sample",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            { "scheme": "https", "host": "bridge-redirect-engine.onrender.com" }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    }
+  }
+}
