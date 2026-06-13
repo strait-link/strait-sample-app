@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Strait Sample",
+    "slug": "strait-sample",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "straitsample",
+    "splash": { "backgroundColor": "#0c0e12" },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.strait.sample",
+      "associatedDomains": ["applinks:bridge-redirect-engine.onrender.com"]
+    },
+    "android": {
+      "package": "com.strait.sample",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            { "scheme": "https", "host": "bridge-redirect-engine.onrender.com" }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    }
+  }
+}
