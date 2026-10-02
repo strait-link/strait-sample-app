@@ -26,7 +26,7 @@ async function api(endpoint, path, body) {
 
 export default function App() {
   const [endpoint, setEndpoint] = useState(DEFAULT_ENDPOINT);
-  const [appId, setAppId] = useState('');
+  const [publishableKey, setPublishableKey] = useState('');
   const [openedUrl, setOpenedUrl] = useState(null); // set when a Universal/App Link opened us
   const [match, setMatch] = useState(null);
   const [eventMsg, setEventMsg] = useState('');
@@ -41,16 +41,16 @@ export default function App() {
   }, []);
 
   async function resolveDeferred() {
-    if (!appId) { setMatch({ error: 'Enter your App ID first' }); return; }
+    if (!publishableKey) { setMatch({ error: 'Enter your publishable key first' }); return; }
     try {
-      const r = await api(endpoint, '/v1/match', { appId, platform, ...collectDevice() });
+      const r = await api(endpoint, '/v1/match', { publishableKey, platform, ...collectDevice() });
       setMatch(r.body || { error: 'HTTP ' + r.status });
     } catch (e) { setMatch({ error: String(e.message) }); }
   }
   async function track(event, extra) {
-    if (!appId) { setEventMsg('Enter your App ID first'); return; }
+    if (!publishableKey) { setEventMsg('Enter your publishable key first'); return; }
     try {
-      const r = await api(endpoint, '/v1/event', { appId, event, platform, ...extra });
+      const r = await api(endpoint, '/v1/event', { publishableKey, event, platform, ...extra });
       setEventMsg(r.ok ? `✓ "${event}" tracked (${r.status})` : `✗ ${r.status}`);
     } catch (e) { setEventMsg('✗ ' + e.message); }
   }
@@ -74,9 +74,9 @@ export default function App() {
         <View style={s.card}>
           <Text style={s.label}>Endpoint</Text>
           <TextInput style={s.input} value={endpoint} onChangeText={setEndpoint} autoCapitalize="none" />
-          <Text style={s.label}>Your App ID</Text>
-          <TextInput style={s.input} value={appId} onChangeText={setAppId} autoCapitalize="none"
-            placeholder="Dashboard → Get started → App ID" placeholderTextColor="#5b6678" />
+          <Text style={s.label}>Your publishable key</Text>
+          <TextInput style={s.input} value={publishableKey} onChangeText={setPublishableKey} autoCapitalize="none"
+            placeholder="bk_pub_live_… (Dashboard → Get started)" placeholderTextColor="#5b6678" />
         </View>
 
         <Text style={s.h2}>② Deferred link (first launch)</Text>
