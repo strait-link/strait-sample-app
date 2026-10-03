@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 
 const DEFAULT_ENDPOINT = 'https://bridge-redirect-engine.onrender.com';
 
-// ── what @bridge/sdk-react-native does, inlined (zero extra installs) ──
+// ── what @strait/sdk-react-native does, inlined (zero extra installs) ──
 function collectDevice() {
   return {
     screenWidth: Math.round(Dimensions.get('screen').width),
@@ -60,14 +60,14 @@ export default function App() {
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={s.wrap}>
         <Text style={s.h1}>🛍️ Acme App</Text>
-        <Text style={s.tag}>Bridge sample · {platform}</Text>
+        <Text style={s.tag}>Strait sample · {platform}</Text>
 
         {/* This banner proves the native deep link opened the app directly */}
         <View style={[s.card, openedUrl ? s.hit : null]}>
           <Text style={s.h2}>Opened via link</Text>
           <Text style={s.res}>{openedUrl
             ? '✅ App opened directly from:\n' + openedUrl + '\n\n(Universal/App Link verified — no browser bounce!)'
-            : 'Not opened from a link this launch. Tap a Bridge link on this device to test direct-open.'}</Text>
+            : 'Not opened from a link this launch. Tap a Strait link on this device to test direct-open.'}</Text>
         </View>
 
         <Text style={s.h2}>① Connect</Text>
@@ -76,7 +76,7 @@ export default function App() {
           <TextInput style={s.input} value={endpoint} onChangeText={setEndpoint} autoCapitalize="none" />
           <Text style={s.label}>Your publishable key</Text>
           <TextInput style={s.input} value={publishableKey} onChangeText={setPublishableKey} autoCapitalize="none"
-            placeholder="bk_pub_live_… (Dashboard → Get started)" placeholderTextColor="#5b6678" />
+            placeholder="st_pub_live_… (Dashboard → Get started)" placeholderTextColor="#5b6678" />
         </View>
 
         <Text style={s.h2}>② Deferred link (first launch)</Text>

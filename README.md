@@ -1,10 +1,10 @@
-# Bridge — sample app (Expo / React Native)
+# Strait — sample app (Expo / React Native)
 
-A dummy "Acme" app to test Bridge end-to-end on a real phone, including the
+A dummy "Acme" app to test Strait end-to-end on a real phone, including the
 **native deep-link verification** (Android App Links / iOS Universal Links via
 `/.well-known/assetlinks.json` + `apple-app-site-association`).
 
-It's pre-wired to verify against the Bridge host
+It's pre-wired to verify against the Strait host
 `bridge-redirect-engine.onrender.com` (see `app.json` → `intentFilters` /
 `associatedDomains`).
 
@@ -22,7 +22,7 @@ Paste your App ID → tap "Check for a deferred link", "signup", "purchase".
 Verify in Dashboard → Analytics.
 
 ## Level 2 — real App-Links verification (Android, no paid account)
-This is the prod-readiness test: tap a Bridge link → the OS opens THIS app
+This is the prod-readiness test: tap a Strait link → the OS opens THIS app
 directly (no browser bounce), because `assetlinks.json` lists your build's cert.
 
 1. **Build a standalone APK** (cloud, free):
@@ -35,11 +35,11 @@ directly (no browser bounce), because `assetlinks.json` lists your build's cert.
    ```sh
    eas credentials       # → Android → shows the SHA-256
    ```
-3. **Send me that SHA-256** → I put it in your Bridge app config so
+3. **Send me that SHA-256** → I put it in your Strait app config so
    `https://bridge-redirect-engine.onrender.com/.well-known/assetlinks.json`
-   lists `com.bridge.sample` + your fingerprint.
+   lists `com.strait.sample` + your fingerprint.
 4. **Install the APK** on a real Android phone.
-5. **Tap a Bridge link** (open it in another app / messaging). Android checks
+5. **Tap a Strait link** (open it in another app / messaging). Android checks
    assetlinks → opens Acme directly → the green "Opened via link" banner shows.
 
 ## Level 3 — iOS Universal Links (needs Apple Developer account, $99/yr)
@@ -47,7 +47,7 @@ Same idea; requires the Associated Domains entitlement on a signed build:
 ```sh
 eas build -p ios --profile preview   # needs Apple Developer credentials
 ```
-Then I configure your Team ID + bundle in Bridge so
+Then I configure your Team ID + bundle in Strait so
 `apple-app-site-association` is valid, you install via TestFlight, and tap a link.
 
 ---
