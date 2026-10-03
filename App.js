@@ -76,7 +76,7 @@ export default function App() {
           <TextInput style={s.input} value={endpoint} onChangeText={setEndpoint} autoCapitalize="none" />
           <Text style={s.label}>Your publishable key</Text>
           <TextInput style={s.input} value={publishableKey} onChangeText={setPublishableKey} autoCapitalize="none"
-            placeholder="bk_pub_live_… (Dashboard → Get started)" placeholderTextColor="#5b6678" />
+            placeholder="st_pub_live_… (Dashboard → Get started)" placeholderTextColor="#5b6678" />
         </View>
 
         <Text style={s.h2}>② Deferred link (first launch)</Text>
